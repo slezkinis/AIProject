@@ -19,11 +19,13 @@ def index():
     if answer['status'] == 'success' and (answer['countryCode'] == 'RU' or answer['countryCode'] == 'KZ'):
         return redirect('/ru')
     else:
-        return '<h1>Main</h1>'
+        with open('index.html', 'r') as file:
+            return file.read()
 
 
 @app.route('/ru')
 def ru():
-    return '<h1>Главная</h1>'
+    with open('index.html', 'r') as file:
+        return file.read()
 if __name__ == '__main__':
     app.run()
